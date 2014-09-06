@@ -13,7 +13,7 @@ import org.uqbar.commons.utils.ApplicationContext
 class WicketApplication extends WebApplication {
 	
 	override getHomePage() {
-		HomePage
+		SeguidorPage
 	}
 	
 	override init() {
