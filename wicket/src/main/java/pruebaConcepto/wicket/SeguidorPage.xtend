@@ -7,6 +7,7 @@ import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import pruebaConcepto.wicket.appModel.SeguidorDeCarrera
 import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
+import org.apache.wicket.markup.html.basic.Label
 
 /**
  * 
@@ -19,8 +20,9 @@ class SeguidorPage extends WebPage {
 	new() {
 		
 		this.sdc = new SeguidorDeCarrera()
-		val Form<SeguidorDeCarrera> seguidor = new Form<SeguidorDeCarrera>("buscarCelularesForm", new CompoundPropertyModel<SeguidorDeCarrera>(this.sdc))
-		this.agregarListaMaterias(seguidor)
+		val Form<SeguidorDeCarrera> seguidorMaterias = new Form<SeguidorDeCarrera>("seguidorMaterias", new CompoundPropertyModel<SeguidorDeCarrera>(this.sdc))
+		this.agregarListaMaterias(seguidorMaterias)
+		this.addChild(seguidorMaterias)
 
 		// TODO Add your page's components here
     }
@@ -29,6 +31,7 @@ class SeguidorPage extends WebPage {
 		val listView = new XListView("materias")
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
+			item.addChild(new Label("nombre"))
 			item.addChild(new XButton("editar").onClick = [| ])
 			]
 			parent.addChild(listView)
