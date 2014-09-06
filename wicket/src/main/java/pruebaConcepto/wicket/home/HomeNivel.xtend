@@ -4,7 +4,9 @@ import org.uqbar.commons.model.CollectionBasedHome
 import pruebaConcepto.wicket.dominio.Nivel
 import org.apache.commons.collections15.Predicate
 import java.util.List
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class HomeNivel extends CollectionBasedHome<Nivel> {
 
 	new() {

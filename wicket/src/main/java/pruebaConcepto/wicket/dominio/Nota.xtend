@@ -1,7 +1,9 @@
 package pruebaConcepto.wicket.dominio
 
 import org.uqbar.commons.model.Entity
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class Nota  extends Entity{
 	@Property String descripcion
 	@Property int fecha

@@ -5,7 +5,9 @@ import org.apache.commons.collections15.Predicate
 import java.util.List
 import pruebaConcepto.wicket.dominio.Nota
 import pruebaConcepto.wicket.dominio.Materia
+import org.uqbar.commons.utils.Observable
 
+@Observable
 class HomeMaterias extends CollectionBasedHome<Materia> { 
 	var n1 = new Nota("1 parcial", 25052012, true)
 	var n2 = new Nota("tp", 30102013, true)
