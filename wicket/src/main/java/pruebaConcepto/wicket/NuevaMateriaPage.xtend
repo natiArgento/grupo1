@@ -31,7 +31,8 @@ class NuevaMateriaPage extends WebPage {
 	
 	def agregarAcciones(Form<Materia> parent) {
 		parent.addChild(new XButton ("aceptar") => [
-			onClick = [|//  agregar la materia a al lista
+			onClick = [|Materia.home.create(nuevaMateria)
+				volver()
 			]
 					]
 			
@@ -39,6 +40,9 @@ class NuevaMateriaPage extends WebPage {
 			
 		)
 			
+	}
+	def volver() {
+	responsePage = mainPage
 	}
 
 }
