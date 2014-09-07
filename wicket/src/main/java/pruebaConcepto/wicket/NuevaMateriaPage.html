@@ -15,20 +15,24 @@
 		<table width="80%">
 			<tr>
 				<td>
-					<h1>Nueva Materia</h1>
+					<h1 wicket:id="titulo">Nueva Materia</h1>
 				</td>
 			</tr>
 		</table>
 
 		<form wicket:id="nuevaMateria" class="form">
 			<fieldset>
-				<label class="control-label">Nombre de la materia</label>
-
-				<div class="controls">
-					<input wicket:id="nombre" type="text" placeholder="Algebra" />
+				<div class="form-group">
+					<label class="control-label" for="nombre">Nombre</label>
+					<div class="controls">
+						<input wicket:id="nombre" type="text" placeholder="algebra"
+							class="form-control" />
+					</div>
 				</div>
+				<div class="form-actions">
+					<button wicket:id="aceptar" type="submit" class="btn btn-primary">Aceptar</button>
 
-
+				</div>
 
 			</fieldset>
 		</form>
