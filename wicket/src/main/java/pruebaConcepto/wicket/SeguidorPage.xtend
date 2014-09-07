@@ -33,6 +33,9 @@ class SeguidorPage extends WebPage {
 	
 	def agregarAcciones(Form<SeguidorDeCarrera> parent) {
 	parent.addChild(new XButton("nuevaMateria").onClick = [|nuevaMateria(new Materia) ])
+	parent.addChild(new XButton("editarNota").onClick = [| //deberia ser materia seleccionada creo
+		editarNota(new Materia)
+	])
 	}
 	
 	def agregarListaMaterias(Form<SeguidorDeCarrera> parent) {
@@ -44,9 +47,14 @@ class SeguidorPage extends WebPage {
 			]
 			parent.addChild(listView)
 	}
-	// no se si deberia ser nota
+	
 	def nuevaMateria(Materia materia) {
 		responsePage = new NuevaMateriaPage(materia, this) 
+	}
+	// no se si deberia ser nota
+	def editarNota(Materia materia){
+		responsePage= new EditarNotaPage(materia,this)
+		
 	}
 	
 }
