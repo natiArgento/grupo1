@@ -39,6 +39,9 @@ class NuevaMateriaPage extends WebPage {
 			
 			
 		)
+		parent.addChild(new XButton ("volver") =>[
+			onClick = [| volver()]
+		])
 			
 	}
 	def volver() {
