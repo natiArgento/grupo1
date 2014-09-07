@@ -16,8 +16,6 @@ class SeguidorDeCarrera implements Serializable {
 	@Property Nivel nivelMateria
 	@Property List<Nivel> niveles
 	@Property Nota notaSeleccionada
-	
-	
 
 	def void actualizarMaterias() {
 		materias = new ArrayList<Materia>
@@ -32,22 +30,21 @@ class SeguidorDeCarrera implements Serializable {
 		ApplicationContext.instance.getSingleton(typeof(Materia))
 	}
 
-	
 	def void eliminarNotaSeleccionada() {
 		materiaSeleccionada.eliminar(notaSeleccionada)
 		notaSeleccionada = null
 		actualizarPantalla
-		
+
 	}
 
-		
-	def actualizarPantalla(){
-		var aux=materiaSeleccionada
+	def actualizarPantalla() {
+		var aux = materiaSeleccionada
 		actualizarMaterias
 		actualizarMaterias
-		materiaSeleccionada=aux
-		
+		materiaSeleccionada = aux
+
 	}
+
 	
-	
+
 }

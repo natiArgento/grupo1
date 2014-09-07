@@ -8,7 +8,7 @@ import pruebaConcepto.wicket.dominio.Materia
 import org.uqbar.commons.utils.Observable
 
 @Observable
-class HomeMaterias extends CollectionBasedHome<Materia> { 
+class HomeMaterias extends CollectionBasedHome<Materia> {
 	var n1 = new Nota("1 parcial", 25052012, true)
 	var n2 = new Nota("tp", 30102013, true)
 	var n3 = new Nota("parcial 2", 28102012, true)
@@ -23,11 +23,11 @@ class HomeMaterias extends CollectionBasedHome<Materia> {
 	}
 
 	def init() {
-		this.create("Analisis 1", 2013, true, "Rinaldi", newArrayList(n1,n2,n3))
-		this.create("Matematica Discreta", 2012, true, "Demmler", newArrayList(n4,n5))
-		this.create("Sintaxis", 2013, true,"Adamoli", newArrayList(n6,n7))
-	} 
-	
+		this.create("Analisis 1", 2013, true, "Rinaldi", newArrayList(n1, n2, n3))
+		this.create("Matematica Discreta", 2012, true, "Demmler", newArrayList(n4, n5))
+		this.create("Sintaxis", 2013, true, "Adamoli", newArrayList(n6, n7))
+	}
+
 	def void create(String nombreMat, int anio, Boolean aprobado, String profe, List<Nota> notas) {
 		var materia = new Materia
 		materia.nombre = nombreMat
@@ -38,7 +38,7 @@ class HomeMaterias extends CollectionBasedHome<Materia> {
 		this.create(materia)
 	}
 
-	override def Class<Materia> getEntityType() {
+	override def getEntityType() {
 		typeof(Materia)
 	}
 
@@ -46,13 +46,16 @@ class HomeMaterias extends CollectionBasedHome<Materia> {
 		new Materia()
 	}
 
-	override  Predicate<Materia> getCriterio(Materia example) {
+	override Predicate<Materia> getCriterio(Materia example) {
 		null
 	}
-	
+
 	def List<Materia> getMaterias() {
-		allInstances	
+		allInstances
 	}
-	
-	
+
+	def refresh() {
+		return allInstances.toList
+	}
+
 }
