@@ -9,6 +9,7 @@ import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
 import org.apache.wicket.markup.html.basic.Label
 import pruebaConcepto.wicket.dominio.Materia
+import org.apache.wicket.markup.html.form.TextField
 
 /**
  * 
@@ -34,6 +35,8 @@ class SeguidorPage extends WebPage {
 	
 	def verMateriaSeleccionada(Form<SeguidorDeCarrera> form) {
 		form.addChild(new Label("materiaSeleccionada.nombre"))
+		form.addChild(new TextField<Integer>("materiaSeleccionada.anioCursada"))
+		
 	}
 	
 	def actualizarPantalla() {

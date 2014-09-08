@@ -6,3 +6,4 @@
 /src/test/xtend-gen
 /src/main/generated-sources
 /bin
+/xtend-gen/
