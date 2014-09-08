@@ -10,6 +10,7 @@ import org.uqbar.wicket.xtend.XButton
 import org.apache.wicket.markup.html.basic.Label
 import pruebaConcepto.wicket.dominio.Materia
 import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.markup.html.form.CheckBox
 
 /**
  * 
@@ -37,6 +38,7 @@ class SeguidorPage extends WebPage {
 		form.addChild(new Label("materiaSeleccionada.nombre"))
 		form.addChild(new TextField<Integer>("materiaSeleccionada.anioCursada"))
 		form.addChild(new TextField<String>("materiaSeleccionada.profesor"))
+		form.addChild(new CheckBox("materiaSeleccionada.estaAprobada"))
 		
 	}
 	
