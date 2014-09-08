@@ -36,6 +36,7 @@ class SeguidorPage extends WebPage {
 	def verMateriaSeleccionada(Form<SeguidorDeCarrera> form) {
 		form.addChild(new Label("materiaSeleccionada.nombre"))
 		form.addChild(new TextField<Integer>("materiaSeleccionada.anioCursada"))
+		form.addChild(new TextField<String>("materiaSeleccionada.profesor"))
 		
 	}
 	
