@@ -27,9 +27,13 @@ class SeguidorPage extends WebPage {
 		this.agregarListaMaterias(seguidorMaterias)
 		this.agregarAcciones(seguidorMaterias)
 		this.addChild(seguidorMaterias)
-
+		this.actualizarPantalla()
 		// TODO Add your page's components here
     }
+	
+	def actualizarPantalla() {
+		this.sdc.actualizarPantalla
+	}
 	
 	def agregarAcciones(Form<SeguidorDeCarrera> parent) {
 	parent.addChild(new XButton("nuevaMateria").onClick = [|nuevaMateria(new Materia) ])
