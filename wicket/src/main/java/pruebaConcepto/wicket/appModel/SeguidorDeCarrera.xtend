@@ -44,7 +44,5 @@ class SeguidorDeCarrera implements Serializable {
 		materiaSeleccionada = aux
 
 	}
-
 	
-
-}
+	}

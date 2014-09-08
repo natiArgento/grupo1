@@ -26,10 +26,15 @@ class SeguidorPage extends WebPage {
 		val Form<SeguidorDeCarrera> seguidorMaterias = new Form<SeguidorDeCarrera>("seguidorMateriasForm", new CompoundPropertyModel<SeguidorDeCarrera>(this.sdc))
 		this.agregarListaMaterias(seguidorMaterias)
 		this.agregarAcciones(seguidorMaterias)
+		this.verMateriaSeleccionada(seguidorMaterias)
 		this.addChild(seguidorMaterias)
 		this.actualizarPantalla()
 		// TODO Add your page's components here
     }
+	
+	def verMateriaSeleccionada(Form<SeguidorDeCarrera> form) {
+		form.addChild(new Label("materiaSeleccionada.nombre"))
+	}
 	
 	def actualizarPantalla() {
 		this.sdc.actualizarPantalla
@@ -47,7 +52,10 @@ class SeguidorPage extends WebPage {
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
-			item.addChild(new XButton("editar").onClick = [| /*editar la materia */])
+			item.addChild(new XButton("editar").onClick = [|
+				sdc.materiaSeleccionada=item.modelObject
+				actualizarPantalla				
+			])
 			]
 			parent.addChild(listView)
 	}
