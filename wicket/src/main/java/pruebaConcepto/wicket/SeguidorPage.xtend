@@ -9,6 +9,8 @@ import org.uqbar.wicket.xtend.XListView
 import org.uqbar.wicket.xtend.XButton
 import org.apache.wicket.markup.html.basic.Label
 import pruebaConcepto.wicket.dominio.Materia
+import org.apache.wicket.markup.html.form.TextField
+import org.apache.wicket.markup.html.form.CheckBox
 
 /**
  * 
@@ -25,11 +27,18 @@ class SeguidorPage extends WebPage {
 
 		val Form<SeguidorDeCarrera> seguidorMaterias = new Form<SeguidorDeCarrera>("seguidorMateriasForm", new CompoundPropertyModel<SeguidorDeCarrera>(this.sdc))
 		this.agregarListaMaterias(seguidorMaterias)
+		this.agregarDatosDeMateria(seguidorMaterias)
 		this.agregarAcciones(seguidorMaterias)
 		this.addChild(seguidorMaterias)
 		this.actualizarPantalla()
 		// TODO Add your page's components here
     }
+	
+	def agregarDatosDeMateria(Form<SeguidorDeCarrera> parent) {
+		parent.addChild(new TextField<String>("materiaSeleccionada.anioCursada"))
+		parent.addChild(new TextField<String>("materiaSeleccionada.profesor"))
+		parent.addChild(new CheckBox("materiaSeleccionada.estaAprobada"))
+	}
 	
 	def actualizarPantalla() {
 		this.sdc.actualizarPantalla
@@ -47,9 +56,13 @@ class SeguidorPage extends WebPage {
 		listView.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("nombre"))
-			item.addChild(new XButton("editar").onClick = [| /*editar la materia */])
+			item.addChild(new XButton("editar").onClick = [| this.seleccionarMateria(item.modelObject)])
 			]
 			parent.addChild(listView)
+	}
+	
+	def seleccionarMateria(Materia materia) {
+		this.sdc.seleccionar(materia)
 	}
 	
 	def nuevaMateria(Materia materia) {

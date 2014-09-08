@@ -20,6 +20,7 @@ class SeguidorDeCarrera implements Serializable {
 	def void actualizarMaterias() {
 		materias = new ArrayList<Materia>
 		materias = getHomeMaterias().getMaterias()
+		
 	}
 
 	def HomeNivel getHomeNivel() {
@@ -35,6 +36,10 @@ class SeguidorDeCarrera implements Serializable {
 		notaSeleccionada = null
 		actualizarPantalla
 
+	}
+	
+	def seleccionar(Materia materia){
+		this.materiaSeleccionada= materia
 	}
 
 	def actualizarPantalla() {
