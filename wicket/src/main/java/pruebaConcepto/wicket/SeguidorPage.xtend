@@ -62,6 +62,7 @@ class SeguidorPage extends WebPage {
 					sdc.eliminarNotaSeleccionada])
 			]
 		form.addChild(listaNotas)
+		form.addChild(new XButton("nuevaNota").onClick = [|editarNota(new Materia)])
 		this.actualizarPantalla
 		
 	}
