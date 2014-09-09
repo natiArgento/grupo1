@@ -101,11 +101,11 @@ class SeguidorPage extends WebPage {
 
 	// no se si deberia ser nota
 	def editarNotaSeleccionada() {
-		responsePage = new EditarNotaPage(sdc.materiaSeleccionada, sdc.notaSeleccionada, this)
+		responsePage = new EditarNotaPage(sdc.materiaSeleccionada, sdc.notaSeleccionada, this, false)
 	}
 
 	def nuevaNota() {
-		responsePage = new EditarNotaPage(sdc.materiaSeleccionada, new Nota(), this)
+		responsePage = new EditarNotaPage(sdc.materiaSeleccionada, new Nota(), this, true)
 	}
 
 }

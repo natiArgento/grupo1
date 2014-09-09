@@ -16,11 +16,13 @@ class EditarNotaPage extends WebPage{
 	private final SeguidorPage mainPage
 	private Nota nota
 	private Materia materia
+	private boolean esNuevo
 		
-	new(Materia materiaSeleccionada, Nota notaAEditar, SeguidorPage mainPage) {
+	new(Materia materiaSeleccionada, Nota notaAEditar, SeguidorPage mainPage, boolean alta) {
 		this.mainPage = mainPage
 		this.materia = materiaSeleccionada
 		this.nota = notaAEditar
+		this.esNuevo = alta
 		this.addChild(new Label("titulo"))
 
 		val editarNotaForm = new Form<Nota>("editarNota", this.nota.asCompoundModel)
@@ -47,7 +49,7 @@ class EditarNotaPage extends WebPage{
 	}
 	
 	def aceptar() {
-		if (nota.isNew){ materia.nuevaNota(nota)}
+		if (this.esNuevo){ materia.nuevaNota(nota)}
 		volver
 	}
 	
