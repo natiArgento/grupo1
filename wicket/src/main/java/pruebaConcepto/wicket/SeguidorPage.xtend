@@ -55,6 +55,11 @@ class SeguidorPage extends WebPage {
 			checkaprobado.setEnabled=false
 			item.addChild(checkaprobado)
 			item.addChild(new XButton("editarNota").onClick = [ |editarNota(new Materia)])
+			
+			item.addChild(new XButton("eliminarNota")
+				.onClick = [|
+					sdc.notaSeleccionada=item.modelObject
+					sdc.eliminarNotaSeleccionada])
 			]
 		form.addChild(listaNotas)
 		this.actualizarPantalla
