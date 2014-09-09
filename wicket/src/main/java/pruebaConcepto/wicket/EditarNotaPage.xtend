@@ -17,7 +17,7 @@ class EditarNotaPage extends WebPage{
 		this.nuevaMateria = nuevaMateria
 		this.addChild(new Label("titulo"))
 
-		val editarMatForm = new Form<Materia>("editarMateria", this.nuevaMateria.asCompoundModel)
+		val editarMatForm = new Form<Materia>("editarNota", this.nuevaMateria.asCompoundModel)
 		this.agregarAcciones(editarMatForm)
 		this.agregarCamposEdicion(editarMatForm)
 		this.addChild(editarMatForm)
