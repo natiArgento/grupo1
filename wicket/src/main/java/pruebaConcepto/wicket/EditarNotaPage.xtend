@@ -5,6 +5,7 @@ import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import pruebaConcepto.wicket.dominio.Materia
 import org.apache.wicket.markup.html.form.Form
 import org.apache.wicket.markup.html.basic.Label
+import org.uqbar.wicket.xtend.XButton
 
 class EditarNotaPage extends WebPage{
 	
@@ -29,7 +30,15 @@ class EditarNotaPage extends WebPage{
 	}
 	
 	def agregarAcciones(Form<Materia> form) {
-		
+		form.addChild(new XButton ("volver") =>[
+			onClick = [| volver()]
+			])
+			
 	}
+	
+	def volver() {
+	responsePage = mainPage
+	}
+	
 	
 }
