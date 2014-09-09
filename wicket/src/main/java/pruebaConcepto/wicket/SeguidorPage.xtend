@@ -53,7 +53,9 @@ class SeguidorPage extends WebPage {
 			item.addChild(new Label("descripcion"))
 			val checkaprobado=new CheckBox ("estaAprobado")
 			checkaprobado.setEnabled=false
-			item.addChild(checkaprobado)]
+			item.addChild(checkaprobado)
+			item.addChild(new XButton("editarNota").onClick = [ |editarNota(new Materia)])
+			]
 		form.addChild(listaNotas)
 		this.actualizarPantalla
 		
@@ -65,10 +67,7 @@ class SeguidorPage extends WebPage {
 
 	def agregarAcciones(Form<SeguidorDeCarrera> parent) {
 		parent.addChild(new XButton("nuevaMateria").onClick = [|nuevaMateria(new Materia)])
-		parent.addChild(
-			new XButton("editarNota").onClick = [ | //deberia ser materia seleccionada creo
-				editarNota(new Materia)
-			])
+		
 	}
 
 	def agregarListaMaterias(Form<SeguidorDeCarrera> parent) {
