@@ -13,6 +13,7 @@ import org.apache.wicket.markup.html.form.TextField
 import org.apache.wicket.markup.html.form.CheckBox
 import org.apache.wicket.markup.html.form.DropDownChoice
 import pruebaConcepto.wicket.dominio.Nivel
+import pruebaConcepto.wicket.dominio.Nota
 
 /**
  * 
@@ -65,11 +66,11 @@ class SeguidorPage extends WebPage {
 					sdc.eliminarNotaSeleccionada])
 			]
 		form.addChild(listaNotas)
-		form.addChild(new XButton("nuevaNota").onClick = [|])
+		form.addChild(new XButton("nuevaNota").onClick = [|nuevaNota()])
 		this.actualizarPantalla
 		
 	}
-
+	
 	def actualizarPantalla() {
 		this.sdc.actualizarPantalla
 	}
@@ -100,7 +101,10 @@ class SeguidorPage extends WebPage {
 	// no se si deberia ser nota
 	def editarNotaSeleccionada() {
 		responsePage = new EditarNotaPage(sdc.notaSeleccionada, this)
+	}
 
+	def nuevaNota() {
+		responsePage = new EditarNotaPage(new Nota(), this)
 	}
 
 }
