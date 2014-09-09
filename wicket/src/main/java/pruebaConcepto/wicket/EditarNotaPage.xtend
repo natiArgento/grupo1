@@ -8,15 +8,18 @@ import org.apache.wicket.markup.html.form.TextField
 import org.uqbar.wicket.xtend.WicketExtensionFactoryMethods
 import org.uqbar.wicket.xtend.XButton
 import pruebaConcepto.wicket.dominio.Nota
+import pruebaConcepto.wicket.dominio.Materia
 
 class EditarNotaPage extends WebPage{
 	
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
 	private final SeguidorPage mainPage
 	private Nota nota
+	private Materia materia
 		
-	new(Nota notaAEditar, SeguidorPage mainPage) {
+	new(Materia materiaSeleccionada, Nota notaAEditar, SeguidorPage mainPage) {
 		this.mainPage = mainPage
+		this.materia = materiaSeleccionada
 		this.nota = notaAEditar
 		this.addChild(new Label("titulo"))
 
@@ -35,12 +38,17 @@ class EditarNotaPage extends WebPage{
 	
 	def agregarAcciones(Form<Nota> form) {
 		form.addChild(new XButton("aceptar").onClick=[|
-			volver
+			aceptar
 		])
 		form.addChild(new XButton ("volver") =>[
 			onClick = [| volver()]
 			])
 			
+	}
+	
+	def aceptar() {
+		if (nota.isNew){ materia.nuevaNota(nota)}
+		volver
 	}
 	
 	def volver() {

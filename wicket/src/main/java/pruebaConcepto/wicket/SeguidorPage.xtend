@@ -39,6 +39,7 @@ class SeguidorPage extends WebPage {
 	}
 
 	def verMateriaSeleccionada(Form<SeguidorDeCarrera> form) {
+		
 		form.addChild(new Label("materiaSeleccionada.nombre"))
 		form.addChild(new TextField<Integer>("materiaSeleccionada.anioCursada"))
 		form.addChild(new TextField<String>("materiaSeleccionada.profesor"))
@@ -100,11 +101,11 @@ class SeguidorPage extends WebPage {
 
 	// no se si deberia ser nota
 	def editarNotaSeleccionada() {
-		responsePage = new EditarNotaPage(sdc.notaSeleccionada, this)
+		responsePage = new EditarNotaPage(sdc.materiaSeleccionada, sdc.notaSeleccionada, this)
 	}
 
 	def nuevaNota() {
-		responsePage = new EditarNotaPage(new Nota(), this)
+		responsePage = new EditarNotaPage(sdc.materiaSeleccionada, new Nota(), this)
 	}
 
 }
