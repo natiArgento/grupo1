@@ -50,7 +50,8 @@ class SeguidorPage extends WebPage {
 		listaNotas.populateItem = [ item |
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("fecha"))
-			item.addChild(new Label("descripcion"))]
+			item.addChild(new Label("descripcion"))
+			item.addChild(new Label ("estaAprobado"))]
 		form.addChild(listaNotas)
 		this.actualizarPantalla
 		
