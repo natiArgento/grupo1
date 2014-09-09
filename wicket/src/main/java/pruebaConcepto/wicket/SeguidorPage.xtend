@@ -51,7 +51,9 @@ class SeguidorPage extends WebPage {
 			item.model = item.modelObject.asCompoundModel
 			item.addChild(new Label("fecha"))
 			item.addChild(new Label("descripcion"))
-			item.addChild(new Label ("estaAprobado"))]
+			val checkaprobado=new CheckBox ("estaAprobado")
+			checkaprobado.setEnabled=false
+			item.addChild(checkaprobado)]
 		form.addChild(listaNotas)
 		this.actualizarPantalla
 		
