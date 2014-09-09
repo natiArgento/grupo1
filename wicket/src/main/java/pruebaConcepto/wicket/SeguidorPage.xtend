@@ -20,7 +20,7 @@ import pruebaConcepto.wicket.dominio.Nivel
  */
 class SeguidorPage extends WebPage {
 	extension WicketExtensionFactoryMethods = new WicketExtensionFactoryMethods
-	var SeguidorDeCarrera sdc
+	@Property var SeguidorDeCarrera sdc
 
 	new() {
 
@@ -54,7 +54,10 @@ class SeguidorPage extends WebPage {
 			val checkaprobado=new CheckBox ("estaAprobado")
 			checkaprobado.setEnabled=false
 			item.addChild(checkaprobado)
-			item.addChild(new XButton("editarNota").onClick = [ |editarNota(new Materia)])
+			item.addChild(new XButton("editarNota").onClick = [ |
+				sdc.notaSeleccionada=item.modelObject
+				editarNotaSeleccionada
+			])
 			
 			item.addChild(new XButton("eliminarNota")
 				.onClick = [|
@@ -62,7 +65,7 @@ class SeguidorPage extends WebPage {
 					sdc.eliminarNotaSeleccionada])
 			]
 		form.addChild(listaNotas)
-		form.addChild(new XButton("nuevaNota").onClick = [|editarNota(new Materia)])
+		form.addChild(new XButton("nuevaNota").onClick = [|])
 		this.actualizarPantalla
 		
 	}
@@ -95,8 +98,8 @@ class SeguidorPage extends WebPage {
 	}
 
 	// no se si deberia ser nota
-	def editarNota(Materia materia) {
-		responsePage = new EditarNotaPage(materia, this)
+	def editarNotaSeleccionada() {
+		responsePage = new EditarNotaPage(sdc.notaSeleccionada, this)
 
 	}
 

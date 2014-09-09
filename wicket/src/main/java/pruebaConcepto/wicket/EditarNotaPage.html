@@ -28,15 +28,15 @@
 				<fieldset>
 				
 				<td><label>Fecha</label></td>
-				<td><input type="text" placeholder=" dd/mm/aaaa"></td>
+				<td><input wicket:id="fecha" type="text"></td>
 				<td><label>Descripcion</label></td>
-								<td><input type="text" placeholder=" tp/parcial"></td>
+								<td><input wicket:id="descripcion" type="text" placeholder=" tp/parcial"></td>
 								
 								<td><label>Aprobada</label></td>
-								<td><input type="checkbox" /></td>
+								<td><input wicket:id="estaAprobado" type="checkbox" /></td>
 					
 					<div class="form-actions">
-						<button type="submit" class="btn btn-primary" style="width: 80px">Aceptar</button>
+						<button wicket:id="aceptar" type="submit" class="btn btn-primary" style="width: 80px">Aceptar</button>
 						<button wicket:id="volver" type="submit" class="btn btn-primary" style="width: 80px">Volver</button>
 
 					</div>
