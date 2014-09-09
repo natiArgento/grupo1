@@ -14,13 +14,15 @@ class HomeNivel extends CollectionBasedHome<Nivel> {
 	}
 
 	def init() {
-		this.create("1 er cuatrimestre", " 1 er nivel")
-		this.create("2 do cuatrimestre", "1 er nivel")
-		this.create("anual", "1 er nivel")
-		this.create("anual", "2do nivel")
-		this.create("anual", "3er nivel")
-		this.create("1er cuatrimestre", "2do nivel")
-		this.create("2 do cuatrimestre", "2do nivel")
+		this.create("Anual", " - 1º nivel")
+		this.create("1º cuatrimestre", " - 1º nivel")
+		this.create("2º cuatrimestre", " - 1º nivel")		
+		this.create("Anual", " - 2º nivel")		
+		this.create("1º cuatrimestre", " - 2º nivel")
+		this.create("2º cuatrimestre", " - 2º nivel")
+		this.create("Anual", " - 3º nivel")
+		this.create("1º cuatrimestre", " - 2º nivel")
+		this.create("2º cuatrimestre", " - 2º nivel")
 
 	}
 
