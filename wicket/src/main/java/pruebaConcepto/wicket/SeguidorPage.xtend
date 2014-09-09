@@ -43,9 +43,8 @@ class SeguidorPage extends WebPage {
 		form.addChild(new TextField<String>("materiaSeleccionada.profesor"))
 		form.addChild(new CheckBox("materiaSeleccionada.estaAprobada"))
 		form.addChild(new DropDownChoice<Nivel>("materiaSeleccionada.nivelMateria") => [
-				choices = loadableModel([|Nivel.home.allInstances])
-			])
-
+				choices = loadableModel([|Nivel.home.allInstances])				
+			])					
 	}
 
 	def actualizarPantalla() {
@@ -68,6 +67,13 @@ class SeguidorPage extends WebPage {
 			item.addChild(
 				new XButton("editar").onClick = [ |
 					sdc.materiaSeleccionada = item.modelObject
+					val listView1 = new XListView("materiaSeleccionada.notas")
+						listView1.populateItem = [ item1 |
+							item1.model = item.modelObject.asCompoundModel
+							item1.addChild(new Label("fecha"))
+							item1.addChild(new Label("descripcion"))
+							]
+						parent.addChild(listView1)
 					actualizarPantalla
 				])
 		]
