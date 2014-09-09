@@ -14,7 +14,7 @@ class Nivel extends Entity{
 	}
 
 	override def toString() {
-		descripcion
+		getDescripcion
 	}
 	
 }
