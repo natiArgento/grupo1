@@ -21,8 +21,8 @@ class HomeNivel extends CollectionBasedHome<Nivel> {
 		this.create("1º cuatrimestre", " - 2º nivel")
 		this.create("2º cuatrimestre", " - 2º nivel")
 		this.create("Anual", " - 3º nivel")
-		this.create("1º cuatrimestre", " - 2º nivel")
-		this.create("2º cuatrimestre", " - 2º nivel")
+		this.create("1º cuatrimestre", " - 3º nivel")
+		this.create("2º cuatrimestre", " - 3º nivel")
 
 	}
 
@@ -32,7 +32,11 @@ class HomeNivel extends CollectionBasedHome<Nivel> {
 		nivel.nroNivel = nroNivel
 		this.create(nivel)
 	}
-
+	
+	def Nivel get(String descripcion) {
+		getNiveles.findFirst [ nivel | nivel.getDescripcion.equals(descripcion) ]
+	}
+	
 	override def Class<Nivel> getEntityType() {
 		typeof(Nivel)
 	}
