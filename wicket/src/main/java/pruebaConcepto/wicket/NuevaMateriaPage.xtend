@@ -32,6 +32,7 @@ class NuevaMateriaPage extends WebPage {
 	def agregarAcciones(Form<Materia> parent) {
 		parent.addChild(new XButton ("aceptar") => [
 			onClick = [|Materia.home.create(nuevaMateria)
+				mainPage.sdc.materiaSeleccionada=nuevaMateria
 				volver()
 			]
 					]
